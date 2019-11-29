@@ -10,6 +10,21 @@ This is written for reporting a bug.
 ## Build Setup
 
 1. set your project id on .firebaserc
+(you can just use firebase init command, but you should chnage firebase.json values)
+"hosting": {
+    "public": "public",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "**",
+        "function": "nuxtssr"
+      }
+    ]
+  },
 
 2. set your project api key and other information on .env
 FIREBASE_APIKEY=APIKEY
