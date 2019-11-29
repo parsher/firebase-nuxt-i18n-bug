@@ -51,10 +51,14 @@ The reason I found.
 2. nuxt.config.js > // Fixme. '~/plugins/common_variables' is the last js plugins in the list
 : Because firebase.js is not the last plugins in this list, the route process is broken,
 : Just change the order firebase.js with common_variables like 
+
+```
 [
     '~/plugins/common_variables', // Fixme.
     '~/plugins/firebase',
 ],
+```
+
 : This will work properly
 
 
