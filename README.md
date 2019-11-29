@@ -11,6 +11,7 @@ This is written for reporting a bug.
 
 1. set your project id on .firebaserc
 (you can just use firebase init command, but you should chnage firebase.json values)
+```
 "hosting": {
     "public": "public",
     "ignore": [
@@ -25,14 +26,15 @@ This is written for reporting a bug.
       }
     ]
   },
-
+```
 2. set your project api key and other information on .env
+```
 FIREBASE_APIKEY=APIKEY
 FIREBASE_AUTHDOMAIN=PID.firebaseapp.com
 FIREBASE_DATABASE_URL=https://PID.firebaseio.com
 FIREBASE_STORAGE_BUCKET=gs://PID.appspot.com/
 FIREBASE_PROJECTID=PID
-
+```
 3. yarn
 
 4. yarn build:firebase
