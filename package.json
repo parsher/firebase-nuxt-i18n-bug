@@ -1,0 +1,31 @@
+{
+  "name": "nuxt-on-firebase",
+  "version": "1.0.0",
+  "description": "Project for dev.to tutorial on how to host a nuxt app on firebase",
+  "author": "Original Author: KiritchoukC, Modified: F",
+  "private": true,
+  "scripts": {
+    "dev": "cross-env NODE_ENV=development nodemon src/server/index.js --watch server",
+    "build": "nuxt build",
+    "start": "cross-env NODE_ENV=production node src/server/index.js",
+    "generate": "nuxt generate",
+    "build:firebase": "yarn clean && yarn build && yarn copy && cd \"functions\" && yarn",
+    "clean": "yarn clean:public:mac && yarn clean:functions:mac && yarn clean:static:mac",
+    "clean:functions:mac": "rm -rf \"functions/.nuxt\"",
+    "clean:public:mac": "rm -rf \"public/**/*.*!(md)\" && rm -rf \"public/_nuxt\"",
+    "clean:static:mac": "rm -rf \"src/static/sw.js\"",
+    "copy": "yarn copy:nuxt:mac && yarn copy:static:mac",
+    "copy:nuxt:mac": "rsync -av \"functions/.nuxt/dist/\" \"public/_nuxt/\"",
+    "copy:static:mac": "rsync -av \"src/static/\" \"public/\"",
+    "start:firebase": "firebase serve",
+    "deploy": "firebase deploy"
+  },
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "firebase": "^7.5.0",
+    "nuxt": "^2.10.2",
+    "nuxt-i18n": "^6.3.0"
+  },
+  "devDependencies": {
+  }
+}
